@@ -59,6 +59,15 @@ $(function(){
 		});
 	})();
 
+	// check useragent
+	(function(){ 
+	    var ua = sapp.ua;
+	    if( !( ua.weixin ||  ua.uc ||  ua.ucweb || ua.android || ua.iPhone || ua.wPhone )) {
+	      // add right url here.
+	      //location.href = 'http://ruien.yhzydesign.com';
+	      //return;
+	    }
+    })();
 
 	//
 	$(window).on("touchstart", function(){

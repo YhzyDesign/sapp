@@ -188,6 +188,7 @@ sapp.ua = (function(){
 			android : has("android"),
 			   iPad : has("ipad"),
 			 iPhone : has("iphone"),
+			 wPhone : has("windows phone"), 
 				iOS : has("ipad") || has("iphone")
 		};
 
