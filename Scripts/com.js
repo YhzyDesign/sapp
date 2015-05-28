@@ -35,7 +35,7 @@ $(function(){
 		     src : "audio/bgmusic.mp3",
 		 preload : "auto",
 		    loop : true,
-		autoplay : true
+		autoplay : true // ios do not support autoplay, it would not work on ios
 	});
 
 
