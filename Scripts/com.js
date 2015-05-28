@@ -69,9 +69,12 @@ $(function(){
 	});
 	$(".more").on("click", function(){
 		if($(this).toggleClass("on").hasClass("on")){
+		    // fix css on ios8.3 safari
+	        $("+ .ele",this).fadeIn();  	        
 			$(".more").not(this).removeClass("on");
 			Mar.Seed.request("sapp","more","page"+sapp.page.now,"index"+$(this).attr("class").substr(-1));
 		}else{
+	        $("+ .ele", this).fadeOut();               
 			Mar.Seed.request("sapp","moreclose","page"+sapp.page.now,"index"+$(this).attr("class").substr(-1));
 		}
 		event.stopImmediatePropagation();
