@@ -30,13 +30,13 @@ $(function(){
 	});
 
 	//音乐
-	//sapp.audio({
-	//	  target : "#music",
-	//	     src : "audio/bgmusic.mp3",
-	//	 preload : "auto",
-	//	    loop : true,
-	//	autoplay : false
-	//});
+	sapp.audio({
+		  target : "#music",
+		     src : "audio/bgmusic.mp3",
+		 preload : "auto",
+		    loop : true,
+		autoplay : true
+	});
 
 
 	//分享
