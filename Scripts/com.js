@@ -18,6 +18,8 @@ $(function(){
 		switch(e.dir){
 			case "swipeUp" : sapp.page.next(); break;
 			case "swipeDown" : sapp.page.prev(); break;
+			case "swipeLeft" : sapp.page.inner_next(); break;
+			case "swipeRight" : sapp.page.inner_prev(); break;
 		}
 	});
 

@@ -95,6 +95,28 @@ sapp.init = function(para){
 			sapp.page.lock();
 			setTimeout(sapp.page.unlock, 1000);
 		},
+		inner_next : function(){
+			if(_lock) return;
+			nowPage = _pages[this.now];
+			var _notEdge = nowPage.inner +1 <= nowPage.main.length ;
+			if(_notEdge) this.inner_go( nowPage.inner +1 );
+			//sapp.event.call("pageNext",{page:this.now, notEdge:_notEdge});
+		},
+		inner_prev : function(){
+			if(_lock) return;
+			nowPage = _pages[this.now];
+			var _notEdge = nowPage.inner-1 >= 1;
+			if(_notEdge) this.inner_go( nowPage.inner-1 );
+		},
+		inner_go : function(index){
+			if(_lock) return;
+			var	nowPage = _pages[this.now];
+			nowPage.main.eq(nowPage.inner-1).removeClass("in").addClass("out");
+			nowPage.main.eq(index-1).addClass("in");
+			nowPage.inner = index;
+			sapp.page.lock();
+			setTimeout(sapp.page.unlock, 1000);
+		},
 		lock:function(){_lock=true;},
 		unlock:function(){_lock=false;}
 	};
@@ -103,6 +125,7 @@ sapp.init = function(para){
 			 index : i+1,
 			   sec : p.eq(i),
 			  main : p.eq(i).children(".main"),
+			 inner : 1,
 			loaded : false
 		};
 		newPage.name = newPage.sec.attr("id");
