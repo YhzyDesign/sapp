@@ -32,13 +32,13 @@ $(function(){
 	});
 
 	//音乐
-	//sapp.audio({
-	//	  target : "#music",
-	//	     src : "audio/bgmusic.mp3",
-	//	 preload : "auto",
-	//	    loop : true,
-	//	autoplay : false
-	//});
+	sapp.audio({
+		  target : "#music",
+		     src : "audio/bgmusic.mp3",
+		 preload : "auto",
+		    loop : true,
+		autoplay : true // ios do not support autoplay, it would not work on ios
+	});
 
 
 	//分享
@@ -61,6 +61,15 @@ $(function(){
 		});
 	})();
 
+	// check useragent
+	(function(){ 
+	    var ua = sapp.ua;
+	    if( !( ua.weixin ||  ua.uc ||  ua.ucweb || ua.android || ua.iPhone || ua.wPhone )) {
+	      // add right url here.
+	      //location.href = 'http://ruien.yhzydesign.com';
+	      //return;
+	    }
+    })();
 
 	//
 	$(window).on("touchstart", function(){
@@ -71,9 +80,12 @@ $(function(){
 	});
 	$(".more").on("click", function(){
 		if($(this).toggleClass("on").hasClass("on")){
+		    // fix css on ios8.3 safari
+	        $("+ .ele",this).fadeIn();  	        
 			$(".more").not(this).removeClass("on");
 			Mar.Seed.request("sapp","more","page"+sapp.page.now,"index"+$(this).attr("class").substr(-1));
 		}else{
+	        $("+ .ele", this).fadeOut();               
 			Mar.Seed.request("sapp","moreclose","page"+sapp.page.now,"index"+$(this).attr("class").substr(-1));
 		}
 		event.stopImmediatePropagation();
