@@ -111,7 +111,8 @@ sapp.init = function(para){
 		inner_go : function(index){
 			if(_lock) return;
 			var	nowPage = _pages[this.now];
-			nowPage.main.eq(nowPage.inner-1).removeClass("in").addClass("out");
+      nowPage.main.removeClass("out in")
+			nowPage.main.eq(nowPage.inner-1).addClass("out");
 			nowPage.main.eq(index-1).addClass("in");
 			nowPage.inner = index;
 			sapp.page.lock();
