@@ -47,22 +47,22 @@ $(function(){
 		  desc : $("meta[name='shareDesc']").attr("content"),
 		   img : $("meta[name='shareImg']").attr("content"),
 		onOpen : function(e){
-			Mar.Seed.request("sapp","click","share");
+			//Mar.Seed.request("sapp","click","share");
 		}
 	});
-	
+
 	//页面到达统计
 	(function(){
 		var reach = 1;
 		sapp.event.on("pageNext",function(e){
 			if(e.page <= reach) return;
 			reach = e.page;
-			Mar.Seed.request("sapp","swipe",("page"+reach));
+			//Mar.Seed.request("sapp","swipe",("page"+reach));
 		});
 	})();
 
 	// check useragent
-	(function(){ 
+	(function(){
 	    var ua = sapp.ua;
 	    if( !( ua.weixin ||  ua.uc ||  ua.ucweb || ua.android || ua.iPhone || ua.wPhone )) {
 	      // add right url here.
@@ -81,12 +81,12 @@ $(function(){
 	$(".more").on("click", function(){
 		if($(this).toggleClass("on").hasClass("on")){
 		    // fix css on ios8.3 safari
-	        $("+ .ele",this).fadeIn();  	        
+	        $("+ .ele",this).fadeIn();
 			$(".more").not(this).removeClass("on");
-			Mar.Seed.request("sapp","more","page"+sapp.page.now,"index"+$(this).attr("class").substr(-1));
+			//Mar.Seed.request("sapp","more","page"+sapp.page.now,"index"+$(this).attr("class").substr(-1));
 		}else{
-	        $("+ .ele", this).fadeOut();               
-			Mar.Seed.request("sapp","moreclose","page"+sapp.page.now,"index"+$(this).attr("class").substr(-1));
+	        $("+ .ele", this).fadeOut();
+			//Mar.Seed.request("sapp","moreclose","page"+sapp.page.now,"index"+$(this).attr("class").substr(-1));
 		}
 		event.stopImmediatePropagation();
 	});
@@ -132,7 +132,7 @@ $(function(){
 		var dstr = theID.split("-");
 		var link = $(itemObj).attr("data-"+areaMap[userArea]);
 		//console.log(link);
-		Mar.Seed.request("sapp","buy",theID);
+		//Mar.Seed.request("sapp","buy",theID);
 		location = link;
 	}
 });
@@ -192,5 +192,3 @@ sapp.wareHouse = (function(){
 	return _wareHouse;
 })();
 /**/
-
-

@@ -24,7 +24,7 @@ var sapp = (function(){
 			var dx = _nx - _ox,
 				dy = _ny - _oy;
 			if(dx*dx+dy*dy < 25) return;
-			
+
 			if(Math.abs(dx) > Math.abs(dy)){
 				sapp.event.call("swipe", {dir:(dx>0 ? "swipeRight" : "swipeLeft")});
 			}else{
@@ -74,7 +74,7 @@ sapp.init = function(para){
 
 			location.hash = index==1 ? "" : index;
 
-			
+
 			var outPage = _pages[this.out],
 				nowPage = _pages[this.now];
 			this.out = this.now;
@@ -212,7 +212,7 @@ sapp.ua = (function(){
 			android : has("android"),
 			   iPad : has("ipad"),
 			 iPhone : has("iphone"),
-			 wPhone : has("windows phone"), 
+			 wPhone : has("windows phone"),
 				iOS : has("ipad") || has("iphone")
 		};
 
@@ -245,11 +245,11 @@ sapp.audio = function(para){
 		if(target.hasClass("on")){
 			_audio.pause();
 			target.removeClass("on");
-			Mar.Seed.request("sapp","music","pause");
+			//Mar.Seed.request("sapp","music","pause");
 		}else{
 			_audio.play();
 			target.addClass("on");
-			Mar.Seed.request("sapp","music","play");
+			//Mar.Seed.request("sapp","music","play");
 		}
 	});
 };
@@ -326,7 +326,7 @@ sapp.fill = function(para){
 		con = $(window);
 
 	para.mode = (MODE[para.mode] || para.mode).split(" ");
-	
+
 	$(window).resize(function(){
 		var ratioW = con.width()/para.width,
 			ratioH = con.height()/para.height,
@@ -339,5 +339,3 @@ sapp.fill = function(para){
 		tar.css({width:parseInt(ratio*para.width), height:parseInt(ratio*para.height)});
 	}).resize();
 }
-
-
