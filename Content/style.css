@@ -39,11 +39,14 @@ html,body,#wrap{overflow:hidden;position:relative;width:100%;height:100%;}
 .inner.main{ -webkit-transform:translate(-100%, 0 );	position:absolute;top:0;left:0; visibility: hidden;}
 .inner.main.in   { -webkit-transform:translate(0%, 0 ); z-index: 1; visibility: visible;}
 .inner.main.in ~ .main {-webkit-transform:translate( 100%, 0);}
-
+/*
 .page      {-webkit-transform:translate3d(0,-100%,0);-moz-transform:translate3d(0,-100%,0);-ms-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0);}
 .in.page   {-webkit-transform:translate3d(0,   0%,0);-moz-transform:translate3d(0,   0%,0);-ms-transform:translate3d(0,   0%,0);transform:translate3d(0,   0%,0);}
 .in ~ .page{-webkit-transform:translate3d(0, 100%,0);-moz-transform:translate3d(0, 100%,0);-ms-transform:translate3d(0, 100%,0);transform:translate3d(0, 100%,0);}
-
+*/
+.page      {-webkit-transform:translate(0,-100%);-moz-transform:translate(0,-100%);-ms-transform:translate3d(0,-100%,0);transform:translate(0,-100%);}
+.in.page   {-webkit-transform:translate(0,   0%);-moz-transform:translate(0,   0%);-ms-transform:translate3d(0,   0%,0);transform:translate(0,   0%);}
+.in ~ .page{-webkit-transform:translate(0, 100%);-moz-transform:translate(0, 100%);-ms-transform:translate3d(0, 100%,0);transform:translate(0, 100%);}
 
 
 #aside{position:absolute;top:0;left:0;width:100%;height:100%;z-index:9;pointer-events:none;}
@@ -76,10 +79,14 @@ html,body{background:#000;}
 #loading{border-color:#e3007f;background:#ffd8ec;color:#e3007f;}
 
 #wrap{-webkit-perspective:1000;}
+/*
 .page      {-webkit-transform:rotateX( 90deg) translate3d(0,-100%,0);-webkit-transition:all 1s;}
 .in.page   {-webkit-transform:rotateX(  0deg) translate3d(0,   0%,0);z-index:1;}
 .in ~ .page{-webkit-transform:rotateX(-90deg) translate3d(0, 100%,0);}
-
+*/
+.page      {-webkit-transform:translate(0,-100%);-webkit-transition:all 1s;}
+.in.page   {-webkit-transform:translate(0,   0%);z-index:1;}
+.in ~ .page{-webkit-transform:translate(0, 100%);}
 
 .page{background-repeat:no-repeat;background-position:center;background-size:cover;}
 .page::before{content:'';position:absolute;top:0;left:0;bottom:0;right:0;background:rgba(0,0,0,0.8);}
