@@ -58,7 +58,7 @@ sapp.init = function(para){
 		next : function(){
 			if(_lock) return;
 			var _notEdge = this.now+1 <= this.length;
-			if(_notEdge) this.go(this.now+1);
+			if(_notEdge){ this.go(this.now+1); }else{ this.go(1); }
 			sapp.event.call("pageNext",{page:this.now, notEdge:_notEdge});
 		},
 		prev : function(){
@@ -74,6 +74,12 @@ sapp.init = function(para){
 
 			location.hash = index==1 ? "" : index;
 
+      // if it is last, prepare first as next
+      //if(	this.length>1 ){
+      //  if( index == this.length){
+      //    _pages[1].sec.addClass("next");
+      //  }
+      //}
 
 			var outPage = _pages[this.out],
 				nowPage = _pages[this.now];
